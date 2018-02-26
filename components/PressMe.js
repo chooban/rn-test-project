@@ -7,20 +7,28 @@ import {
   Button
 } from 'react-native';
 
+import {
+  StackNavigator
+} from 'react-navigation';
+
 import styles from './Styles';
 
-export default class PressMe extends React.Component {
+class PressMe extends React.Component {
+  constructor(props) {
+    super(props);
+    this._onPressButton = this._onPressButton.bind(this);
+  }
+
   static navigationOptions = {
     title: 'Press The Button'
   };
 
   _onPressButton() {
-    console.log("Authorising...");
-    firebase.auth()
-      .signInAnonymouslyAndRetrieveData()
-      .then((credentials) => {
-        Alert.alert("default app user is " + JSON.stringify(credentials.user.toJSON()));
-      });
+    firebase.auth().signInAnonymouslyAndRetrieveData();
+    firebase.auth().onAuthStateChanged(() => {
+      console.log("Auth state changed");
+      this.props.navigation.navigate('NotificationsScreen');
+    });
   }
 
   render() {
@@ -36,3 +44,4 @@ export default class PressMe extends React.Component {
   }
 }
 
+export default PressMe;

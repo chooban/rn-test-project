@@ -22,7 +22,6 @@ export default class Home extends React.Component {
   };
 
   _onPressButton() {
-    console.log(this.props);
     this.props.navigation.navigate('PressMeScreen');
   }
 

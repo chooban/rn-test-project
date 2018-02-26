@@ -10,6 +10,7 @@ import {
 import Home from './components/Home';
 import PressMe from './components/PressMe';
 import ScrollingList from './components/ScrollingList';
+import NotificationsWatcher from './components/NotificationsWatcher';
 
 const App = StackNavigator({
   HomeScreen: {
@@ -20,6 +21,9 @@ const App = StackNavigator({
   },
   ScrollingListScreen: {
     screen: ScrollingList
+  },
+  NotificationsScreen: {
+    screen: NotificationsWatcher
   }
 }, {
   initialRouteName: 'PressMeScreen'
