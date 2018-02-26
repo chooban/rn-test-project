@@ -1,4 +1,5 @@
 import React from 'react';
+import firebase from 'react-native-firebase';
 import {
   Alert,
   Text,
@@ -14,7 +15,12 @@ export default class PressMe extends React.Component {
   };
 
   _onPressButton() {
-    Alert.alert("You pressed it");
+    console.log("Authorising...");
+    firebase.auth()
+      .signInAnonymouslyAndRetrieveData()
+      .then((credentials) => {
+        Alert.alert("default app user is " + JSON.stringify(credentials.user.toJSON()));
+      });
   }
 
   render() {

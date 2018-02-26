@@ -22,7 +22,7 @@ const App = StackNavigator({
     screen: ScrollingList
   }
 }, {
-  initialRouteName: 'ScrollingListScreen'
+  initialRouteName: 'PressMeScreen'
 });
 
 export default App;
