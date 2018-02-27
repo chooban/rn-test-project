@@ -23,3 +23,5 @@ android/.gradle/
 android/app/google-services.json
 **/*.keystore
 **/*.iml
+
+**/*.pbxproj
